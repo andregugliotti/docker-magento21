@@ -1,6 +1,6 @@
 FROM php:5.6-fpm
 
-RUN useradd -u 1000 local -d /home/local
+RUN useradd -u 1000 local -d "/home/local"
 
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
@@ -46,6 +46,7 @@ RUN tar -xf /usr/src/php/ext/xdebug.tgz -C /usr/src/php/ext/ && \
     docker-php-ext-install xdebug-2.5.4
 COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
+COPY magento.ini /usr/local/etc/php/conf.d/90-magento.ini
 # to include ioncube support, uncomment the next two lines
 #COPY ioncube/ioncube_loader_lin_5.6.so /usr/lib/php5/20131226/ioncube_loader_lin_5.6.so
 #COPY ioncube.ini /usr/local/etc/php/php.ini
