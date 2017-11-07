@@ -30,6 +30,7 @@ After that, when you access the project site, I recommend updating composer modu
 - then, at folder _/var/www/html_ type the command `composer update` to start the update process
 - Magento will require an access key. To get it, you must visit Magento site and log in into your account. Then, go to Your Profile > Marketplace > Access Keys and generate a new access key.
 - The username is the first sequence of digits and the password is the second one. Just copy and paste from Magento site to Docker terminal
+- The last step is to generate the static content. To do that, on the same folder (the root of Magento, at Docker shell) type `php magento setup:static-content:deploy`. This will recreate all static content.
 
 If you have doubts about generating the access key, visit this [link](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/connect-auth.html).
 
