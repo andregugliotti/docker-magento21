@@ -27,10 +27,11 @@ On this project you find a base DB, on folder sample-db. To use it, you just imp
 After that, when you access the project site, I recommend updating composer modules. To do that:
 
 - on your terminal, navigate into the folder _docker-magento21_ and type the command `docker exec -it --user local dockermagento21_phpfpm_1 bash` to gain access to Docker container terminal as common user
-- then, at folder _/var/www/html_ type the command `composer update` to start the update process
+- then, at folder _/var/www/html_ type the command `composer install` to start the install process. You can use `composer update` if you want to update the system but it is recommended to run first a install, using the current collection of packages (which almost always works).
 - Magento will require an access key. To get it, you must visit Magento site and log in into your account. Then, go to Your Profile > Marketplace > Access Keys and generate a new access key.
 - The username is the first sequence of digits and the password is the second one. Just copy and paste from Magento site to Docker terminal
-- The last step is to generate the static content. To do that, on the same folder (the root of Magento, at Docker shell) type `php magento setup:static-content:deploy`. This will recreate all static content.
+- The last step is to generate the static content. To do that, on the same folder (the root of Magento, at Docker shell) type `php bin/magento setup:static-content:deploy`. This will recreate all static content.
+- This version ships also the sample data. If by any reason sample data is not installed, then run this command: `php bin/magento sampledata:deploy` and after `php bin/magento setup:upgrade` to install sample data.
 
 If you have doubts about generating the access key, visit this [link](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/connect-auth.html).
 
